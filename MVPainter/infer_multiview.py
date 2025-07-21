@@ -256,7 +256,7 @@ if __name__ == '__main__':
 
     # load pipeline modules
 
-    pipeline_path = 'shaomq/MVPainter'
+    pipeline_path = '/mv_painter_weights'
 
     pipeline = MVPainter_Pipeline.from_pretrained(
         pipeline_path,
@@ -268,12 +268,12 @@ if __name__ == '__main__':
 
 
     print('Loading custom unet ...')
-    unet_ckpt_path = hf_hub_download(
-        repo_id="shaomq/MVPainter",
-        filename="unet_w_controlnet/v29_25000.ckpt"  # 改成你实际的 ckpt 文件路径
-    )
+    # unet_ckpt_path = hf_hub_download(
+    #     repo_id="shaomq/MVPainter",
+    #     filename="unet_w_controlnet/v29_25000.ckpt"  # 改成你实际的 ckpt 文件路径
+    # )
 
-    ckpt = torch.load(unet_ckpt_path)[
+    ckpt = torch.load(f"{pipeline_path}/unet_w_controlnet/v29_25000.ckpt")[
         "state_dict"]
     new_ckpt = {k[5:]: v for k, v in ckpt.items() if "unet" in k}
     pipeline.unet.load_state_dict(new_ckpt)
