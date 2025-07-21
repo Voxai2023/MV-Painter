@@ -261,6 +261,7 @@ if __name__ == '__main__':
     pipeline = MVPainter_Pipeline.from_pretrained(
         pipeline_path,
         torch_dtype=torch.float16,
+        trust_remote_code=True
     )
 
     controlnet = ControlNetModel_Union.from_unet(pipeline.unet).to(dtype=torch.float16,device=pipeline.device)
