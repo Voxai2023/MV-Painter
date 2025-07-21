@@ -48,15 +48,15 @@
 
 
 datasets
-diffusers==0.20.2
+diffusers
 einops
-huggingface-hub==0.22.2
+huggingface-hub
 imageio
 jaxtyping
 # joblib
 lightning-utilities
 # matplotlib
-numpy==1.26.3
+numpy
 omegaconf
 opencv-python
 pandas
@@ -64,11 +64,11 @@ pillow
 # plyfile
 # PyMCubes
 pyparsing
-pytorch-lightning==2.2.4
+pytorch-lightning
 PyYAML
 safetensors
 scikit-image
-scipy==1.13.0
+scipy
 tensorboard
 tensorboardX
 timm
