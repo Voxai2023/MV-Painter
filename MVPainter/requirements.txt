@@ -48,7 +48,7 @@
 
 
 datasets
-diffusers
+diffusers==0.28.0
 einops
 huggingface-hub
 imageio
