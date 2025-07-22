@@ -261,7 +261,7 @@ if __name__ == '__main__':
     pipeline = MVPainter_Pipeline.from_pretrained(
         pipeline_path,
         torch_dtype=torch.float16,
-        trust_remote_code=True
+        use_safetensors=True
     )
 
     controlnet = ControlNetModel_Union.from_unet(pipeline.unet).to(dtype=torch.float16,device=pipeline.device)
@@ -274,7 +274,7 @@ if __name__ == '__main__':
     #     filename="unet_w_controlnet/v29_25000.ckpt"  # 改成你实际的 ckpt 文件路径
     # )
 
-    ckpt = torch.load(f"{pipeline_path}/unet_w_controlnet/v29_25000.ckpt")[
+    ckpt = torch.load(f"{pipeline_path}/unet_w_controlnet/v29_25000.safetensors")[
         "state_dict"]
     new_ckpt = {k[5:]: v for k, v in ckpt.items() if "unet" in k}
     pipeline.unet.load_state_dict(new_ckpt)
