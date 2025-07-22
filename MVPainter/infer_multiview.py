@@ -258,6 +258,8 @@ if __name__ == '__main__':
 
     pipeline_path = '/mv_painter_weights'
 
+    print('loading safetensors')
+    
     pipeline = MVPainter_Pipeline.from_pretrained(
         pipeline_path,
         torch_dtype=torch.float16,
