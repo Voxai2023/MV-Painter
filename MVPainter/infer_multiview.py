@@ -259,6 +259,7 @@ if __name__ == '__main__':
     pipeline_path = '/mv_painter_weights'
 
     print('loading safetensors')
+    os.system('ls -R /mv_painter_weights/vision_encoder_2')
     
     pipeline = MVPainter_Pipeline.from_pretrained(
         pipeline_path,
